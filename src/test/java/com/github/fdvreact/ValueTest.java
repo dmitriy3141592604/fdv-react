@@ -1,4 +1,4 @@
-package react;
+package com.github.fdvreact;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com.github.fdvreact.Value;
 import com.github.typemarkup.Behavior;
 
 public class ValueTest extends ValueTestBase {

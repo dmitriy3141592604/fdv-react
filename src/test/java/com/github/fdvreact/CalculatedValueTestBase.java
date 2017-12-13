@@ -1,6 +1,8 @@
-package react;
+package com.github.fdvreact;
 
 import org.junit.Before;
+
+import com.github.fdvreact.CalculatedValue;
 
 public abstract class CalculatedValueTestBase extends ReactTestBase {
 

@@ -1,4 +1,4 @@
-package react;
+package com.github.fdvreact;
 
 import java.util.ArrayList;
 import java.util.List;

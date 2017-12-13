@@ -1,8 +1,8 @@
-package react.examples;
+package com.github.fdvreact.examples;
 
-import react.CalculatedValue;
-import react.InputValue;
-import react.Value;
+import com.github.fdvreact.CalculatedValue;
+import com.github.fdvreact.InputValue;
+import com.github.fdvreact.Value;
 
 /**
  * Пример формирования строки Hello, World.

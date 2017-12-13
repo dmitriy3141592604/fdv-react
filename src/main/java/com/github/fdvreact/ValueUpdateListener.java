@@ -1,4 +1,4 @@
-package react;
+package com.github.fdvreact;
 
 import com.github.typemarkup.Responsibility;
 

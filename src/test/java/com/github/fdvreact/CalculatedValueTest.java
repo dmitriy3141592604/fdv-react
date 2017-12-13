@@ -1,4 +1,4 @@
-package react;
+package com.github.fdvreact;
 
 import static org.junit.Assert.assertEquals;
 
