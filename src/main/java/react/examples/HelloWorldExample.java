@@ -10,6 +10,8 @@ public class HelloWorldExample implements Runnable {
 		new HelloWorldExample().run();
 	}
 
+	// XXX Удалить предупреждение
+	@SuppressWarnings("unchecked")
 	@Override
 	public void run() {
 		final InputValue<String> hello = new InputValue<String>();
@@ -40,7 +42,8 @@ public class HelloWorldExample implements Runnable {
 
 	}
 
-	public Value<String> summ(Value<String> left, Value<String>... rest) {
+	// TODO Удалить предупреждение
+	public Value<String> summ(Value<String> left, @SuppressWarnings("unchecked") Value<String>... rest) {
 		final CalculatedValue<String> retVal = new CalculatedValue<String>() {
 
 			@Override
