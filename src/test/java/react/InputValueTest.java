@@ -17,6 +17,7 @@ public class InputValueTest extends InputValueTestBase {
 	@Test
 	@Behavior("При установке нового значения, формируется событие")
 	public void test$newValueFireUpdateEvent() {
+
 		value.registerUpdateListener(newCallLogAppender("called"));
 
 		assertEquals(" called", callLog());
@@ -29,6 +30,7 @@ public class InputValueTest extends InputValueTestBase {
 	@Test
 	@Behavior("null равен null при сравнении старого и нового значения. Событие не генерируется")
 	public void test$nullIsComparableWithNull() {
+
 		value.registerUpdateListener(newCallLogAppender("cl"));
 
 		assertEquals(" cl", callLog());
@@ -41,6 +43,7 @@ public class InputValueTest extends InputValueTestBase {
 	@Test
 	@Behavior("Событие генерируется только для неравных объектов")
 	public void test$eventFiredOnlyForNotEqualsValues() {
+
 		value.set("oldValue");
 
 		value.registerUpdateListener(newCallLogAppender("cl"));

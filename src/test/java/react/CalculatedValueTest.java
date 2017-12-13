@@ -12,8 +12,6 @@ public class CalculatedValueTest extends CalculatedValueTestBase {
 	@Behavior("Значение поля вычисляется при обновлении источников данных")
 	public void test$valueRecalculatedByEvent() {
 
-		assertEquals("", callLog());
-
 		value = newCalculatedValue("recalculated", "newValue");
 
 		assertEquals("", callLog());
@@ -26,7 +24,6 @@ public class CalculatedValueTest extends CalculatedValueTestBase {
 	@Test
 	@Behavior("Если значение равно предыдущему, то событие обновления не посылается дальше")
 	public void test$noPropogationIfNewValueEqualToOldValue() {
-		assertEquals("", callLog());
 
 		value = newCalculatedValue(" recalculated", null);
 		value.registerUpdateListener(newCallLogAppender("propogaded"));
@@ -42,6 +39,7 @@ public class CalculatedValueTest extends CalculatedValueTestBase {
 	@Test
 	@Behavior("Если вычисляется значение отличное от старого, то генерируется событие")
 	public void test$generateEventIfNewVaulueIsNotEqualToOldValue() {
+
 		value = newCalculatedValue(" recalculated", "newValue");
 		value.registerUpdateListener(newCallLogAppender("observers notified"));
 

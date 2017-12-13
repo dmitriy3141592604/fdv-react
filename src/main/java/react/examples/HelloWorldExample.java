@@ -4,7 +4,13 @@ import react.CalculatedValue;
 import react.InputValue;
 import react.Value;
 
-public class HelloWorldExample implements Runnable {
+/**
+ * Пример формирования строки Hello, World.
+ *
+ * @author dmitriy3141592604
+ *
+ */
+public class HelloWorldExample implements Runnable, HelloWorldExampleSupportLibrary {
 
 	public static void main(String... args) {
 		new HelloWorldExample().run();
@@ -19,21 +25,21 @@ public class HelloWorldExample implements Runnable {
 		final InputValue<String> exclamation = new InputValue<String>();
 		final InputValue<String> space = new InputValue<String>();
 
-		final Value<String> helloWorld = summ(summ(hello, summ(space, world)), exclamation);
+		final Value<String> helloWorld = summ(hello, space, world, exclamation);
 
-		print("До инициализации значений: " + helloWorld.get());
+		print("До инициализации значений : " + helloWorld.get());
 
 		hello.set("hello");
 		world.set("world");
 		exclamation.set("!");
 		space.set(" ");
 
-		print("После инициализации: " + helloWorld.get());
+		print("После инициализации       : " + helloWorld.get());
 
 		hello.set("Hello");
 		world.set("World");
 
-		print("После исправления ошибок: " + helloWorld.get());
+		print("После исправления ошибок  : " + helloWorld.get());
 
 	}
 
@@ -42,8 +48,18 @@ public class HelloWorldExample implements Runnable {
 
 	}
 
+}
+
+/**
+ * Пример формирования функцй для работы с кешированными значениями
+ *
+ * @author dmitriy3141592604
+ *
+ */
+interface HelloWorldExampleSupportLibrary {
+
 	// TODO Удалить предупреждение
-	public Value<String> summ(Value<String> left, @SuppressWarnings("unchecked") Value<String>... rest) {
+	public default Value<String> summ(Value<String> left, @SuppressWarnings("unchecked") Value<String>... rest) {
 		final CalculatedValue<String> retVal = new CalculatedValue<String>() {
 
 			@Override
@@ -58,11 +74,11 @@ public class HelloWorldExample implements Runnable {
 		};
 
 		left.registerUpdateListener(retVal);
+
 		for (final Value<String> v : rest) {
 			v.registerUpdateListener(retVal);
 		}
 		return retVal;
 
 	}
-
 }
